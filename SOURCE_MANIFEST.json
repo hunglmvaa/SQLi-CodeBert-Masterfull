@@ -1,0 +1,65 @@
+{
+  "package_name": "sqli-codebert-masterfull-multiseed",
+  "created_at": "2026-06-01",
+  "purpose": "GitHub-ready multi-seed source-code release for the SQLi CodeBERT paper.",
+  "scope": {
+    "included": [
+      "multi-seed proposed-model training",
+      "processed MasterFull train/validation/test CSV split",
+      "validation-set threshold calibration",
+      "ablation/baseline/ONNX benchmark scripts needed for paper reproduction",
+      "paper asset generation from real outputs"
+    ],
+    "excluded": [
+      ".git metadata",
+      "Kaggle notebooks and launchers",
+      "GitHub upload guides",
+      "server-local packaging scripts",
+      "CSIC2010 transfer fine-tuning folder",
+      "old single-run experiment entry points",
+      "generated results/checkpoints/ONNX artifacts"
+    ]
+  },
+  "default_multiseed": [
+    42,
+    123,
+    2024
+  ],
+  "main_epochs": 5,
+  "max_len": 256,
+  "file_count": 32,
+  "files": [
+    ".gitignore",
+    "CITATION.cff",
+    "LICENSE",
+    "README.md",
+    "README_VI.md",
+    "augmentation.py",
+    "baselines.py",
+    "benchmark_and_plot.py",
+    "config.py",
+    "data/README.md",
+    "data/data_validation_report.csv",
+    "data/data_validation_report.json",
+    "data/test_dataset.csv",
+    "data/train_dataset.csv",
+    "data/val_dataset.csv",
+    "dataset.py",
+    "docs/MULTI_SEED_GUIDE.md",
+    "make_paper_assets.py",
+    "optimize_model.py",
+    "paper_assets_builder.py",
+    "preprocessing.py",
+    "requirements.txt",
+    "run_ablation_multigpu_resumable.py",
+    "run_baseline_exact_split_v2.py",
+    "run_classical_ml_baselines.py",
+    "run_multiseed.py",
+    "run_multiseed.sh",
+    "run_transformer_baselines.py",
+    "tokenizer.py",
+    "train_codebert.py",
+    "validate_inputs.py",
+    "SOURCE_MANIFEST.json"
+  ]
+}

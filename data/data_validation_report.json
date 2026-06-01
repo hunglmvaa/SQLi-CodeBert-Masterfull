@@ -1,0 +1,60 @@
+{
+  "splits": [
+    {
+      "file": "data/train_dataset.csv",
+      "rows_raw": 149344,
+      "rows_usable": 149344,
+      "normal": 89607,
+      "sqli": 59737,
+      "null_text": 0,
+      "null_label": 0,
+      "invalid_label": 0,
+      "duplicate_text": 0,
+      "char_len_p50": 85.0,
+      "char_len_p95": 216.0,
+      "char_len_p99": 305.0,
+      "char_len_max": 681
+    },
+    {
+      "file": "data/val_dataset.csv",
+      "rows_raw": 37337,
+      "rows_usable": 37337,
+      "normal": 22402,
+      "sqli": 14935,
+      "null_text": 0,
+      "null_label": 0,
+      "invalid_label": 0,
+      "duplicate_text": 0,
+      "char_len_p50": 84.0,
+      "char_len_p95": 215.0,
+      "char_len_p99": 311.0,
+      "char_len_max": 1055
+    },
+    {
+      "file": "data/test_dataset.csv",
+      "rows_raw": 112753,
+      "rows_usable": 112753,
+      "normal": 68640,
+      "sqli": 44113,
+      "null_text": 0,
+      "null_label": 0,
+      "invalid_label": 0,
+      "duplicate_text": 0,
+      "char_len_p50": 20.0,
+      "char_len_p95": 101.0,
+      "char_len_p99": 180.0,
+      "char_len_max": 3062
+    }
+  ],
+  "total": {
+    "file": "TOTAL",
+    "rows_raw": 299434,
+    "rows_usable": 299434,
+    "normal": 180649,
+    "sqli": 118785,
+    "null_text": 0,
+    "null_label": 0,
+    "invalid_label": 0,
+    "duplicate_text": 0
+  }
+}

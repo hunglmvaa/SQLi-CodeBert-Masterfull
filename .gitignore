@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+.env
+
+# Experiment outputs
+results/
+paper_assets/
+models/
+checkpoints/
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+onnx_fp32/
+onnx_fp16/
+onnx_int8/
+
+# Logs and temporary files
+*.log
+*.tmp
+.DS_Store
+.ipynb_checkpoints/
+
+# Keep the paper split CSV files in data/ for reproducibility.
+# Do not commit raw/private datasets or generated model artifacts.
