@@ -1,0 +1,7 @@
+[
+ {"seed":7,   "proposed_dir":"results/seed_7/best_model_sql_aware",   "proposed_tau":0.52, "vanilla_dir":"results_nosql/seed_7/best_model_sql_aware",   "vanilla_tau":0.28},
+ {"seed":42,  "proposed_dir":"results/best_model_sql_aware",          "proposed_tau":0.25, "vanilla_dir":"results_nosql/seed_42/best_model_sql_aware",  "vanilla_tau":0.39},
+ {"seed":99,  "proposed_dir":"results/seed_99/best_model_sql_aware",  "proposed_tau":0.32, "vanilla_dir":"results_nosql/seed_99/best_model_sql_aware",  "vanilla_tau":0.26},
+ {"seed":123, "proposed_dir":"results/seed_123/best_model_sql_aware", "proposed_tau":0.51, "vanilla_dir":"results_nosql/seed_123/best_model_sql_aware", "vanilla_tau":0.38},
+ {"seed":2024,"proposed_dir":"results/seed_2024/best_model_sql_aware","proposed_tau":0.57, "vanilla_dir":"results_nosql/seed_2024/best_model_sql_aware","vanilla_tau":0.71}
+]

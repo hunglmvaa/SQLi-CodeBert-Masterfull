@@ -1,0 +1,4 @@
+split,file,sha256,rows,normal,sqli,duplicate_text_within_split,null_text,null_label
+train,data/train_dataset.csv,298729190f88c4886bba0b2d194d382698efe78fb4d2f3747e3f979d4f9e2f8b,149344,89607,59737,0,0,0
+validation,data/val_dataset.csv,316594212587f0287905686707640e983e4f14cd038b9af610f0d00b42d393eb,37337,22402,14935,0,0,0
+test,data/test_dataset.csv,6f510ac155cfadafd522c58a41f12e4499f232ce1374addb87e6fec4eb1a8dc4,112753,68640,44113,0,0,0

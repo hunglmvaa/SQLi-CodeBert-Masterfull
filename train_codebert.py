@@ -13,7 +13,7 @@ Outputs (under results/):
   threshold.json               calibrated threshold + F1 / FPR @ τ*
 
 Usage:
-  python train_codebert.py            # default: CodeBERT, 5 epochs, batch 16
+  python train_codebert.py            # default: CodeBERT, 5 epochs, batch 32
   python train_codebert.py --epochs 3 --batch_size 32
 
 Requires HuggingFace network access for the first run (to fetch the base
@@ -199,12 +199,12 @@ def main():
         collate_fn=collator,
     )
     val_dl = DataLoader(
-        val_ds, batch_size=args.batch_size * 2,
+        val_ds, batch_size=args.batch_size,
         num_workers=args.num_workers, pin_memory=(device == 'cuda'),
         collate_fn=collator,
     )
     test_dl = DataLoader(
-        test_ds, batch_size=args.batch_size * 2,
+        test_ds, batch_size=args.batch_size,
         num_workers=args.num_workers, pin_memory=(device == 'cuda'),
         collate_fn=collator,
     )
@@ -225,6 +225,7 @@ def main():
             'model_name': args.model_name,
             'epochs': args.epochs,
             'batch_size': args.batch_size,
+            'eval_batch_size': args.batch_size,
             'learning_rate': args.lr,
             'max_len': args.max_len,
             'label_smoothing': config.LABEL_SMOOTHING,

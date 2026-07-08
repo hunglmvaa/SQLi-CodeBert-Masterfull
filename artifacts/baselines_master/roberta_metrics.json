@@ -1,0 +1,65 @@
+{
+  "config": {
+    "baseline": "RoBERTa-base",
+    "model_key": "roberta",
+    "pretrained_model": "roberta-base",
+    "max_len": 256,
+    "epochs": 3,
+    "batch_size": 32,
+    "eval_batch_size": 32,
+    "lr": 2e-05,
+    "weight_decay": 0.01,
+    "threshold_calibration": "validation_max_f1",
+    "sql_aware_tokens": false,
+    "normalized_text": true,
+    "amp": false
+  },
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 0.08377027449153779,
+      "val_loss": 0.023216136250315232,
+      "val_best_f1": 0.9931196509481457,
+      "val_threshold": 0.22247087955474854,
+      "val_fpr": 0.002901526649406303
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.023702734324493845,
+      "val_loss": 0.014830646302439012,
+      "val_best_f1": 0.9949620474239269,
+      "val_threshold": 0.6426524519920349,
+      "val_fpr": 0.0012052495312918489
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.015240296695499932,
+      "val_loss": 0.014202977798134505,
+      "val_best_f1": 0.9958057913632855,
+      "val_threshold": 0.8267388939857483,
+      "val_fpr": 0.0012945272743505045
+    }
+  ],
+  "metrics": {
+    "accuracy": 0.9934724574955877,
+    "precision": 0.9964293071482524,
+    "recall": 0.986851948405232,
+    "f1": 0.9916175030181544,
+    "tn": 68484,
+    "fp": 156,
+    "fn": 580,
+    "tp": 43533,
+    "specificity": 0.9977272727272727,
+    "fpr": 0.0022727272727272726,
+    "fnr": 0.013148051594767982,
+    "threshold": 0.8267388939857483,
+    "roc_auc": 0.9993831626099892,
+    "average_precision": 0.9991673115015692,
+    "val_loss": 0.014202977798134505,
+    "test_loss": 0.0362982859323149,
+    "val_best_f1": 0.9958057913632855,
+    "train_eval_seconds": 4148.894855999999,
+    "test_eval_seconds": 288.8870565999823,
+    "latency_ms_per_sample": 2.5621230175692205
+  }
+}

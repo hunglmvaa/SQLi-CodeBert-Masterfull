@@ -352,7 +352,7 @@ def parse_args() -> argparse.Namespace:
     ap.add_argument("--models", default="bert,distilbert,roberta,codebert", help="Comma list or all.")
     ap.add_argument("--epochs", type=int, default=3)
     ap.add_argument("--batch_size", type=int, default=32)
-    ap.add_argument("--eval_batch_size", type=int, default=64)
+    ap.add_argument("--eval_batch_size", type=int, default=32)
     ap.add_argument("--max_len", type=int, default=256)
     ap.add_argument("--lr", type=float, default=2e-5)
     ap.add_argument("--weight_decay", type=float, default=0.01)

@@ -22,7 +22,7 @@ and writes:
 
 Usage
 -----
-  # Default seeds from config.SEEDS (42, 123, 2024), default 5 epochs / batch 16
+  # Default seeds from config.SEEDS (7, 42, 99, 123, 2024), default 5 epochs / batch 32
   python run_multiseed.py
 
   # Custom seeds and Kaggle-style settings
@@ -51,13 +51,15 @@ import config
 
 # Metrics pulled from each seed's threshold.json. Keys are the names used in the
 # summary; values describe where to read them from the threshold.json structure.
-METRIC_KEYS = ["f1", "auc", "ap", "tpr", "fpr", "tau_star", "f1_at_0_5"]
+METRIC_KEYS = ["f1", "auc", "ap", "tpr", "fpr", "balanced_accuracy", "mcc", "tau_star", "f1_at_0_5"]
 PRETTY = {
     "f1": "F1 @ tau*",
     "auc": "AUC",
     "ap": "AP",
     "tpr": "TPR",
     "fpr": "FPR",
+    "balanced_accuracy": "BA",
+    "mcc": "MCC",
     "tau_star": "tau*",
     "f1_at_0_5": "F1 @ 0.5",
 }
@@ -73,13 +75,24 @@ def read_seed_metrics(threshold_path: str) -> Dict[str, float]:
     calib = d.get("test_metrics_at_calibrated_tau", {})
     default = d.get("test_metrics_at_default_tau_0_5", {})
     cm = d.get("test_confusion_matrix_calibrated", {})
+    tn = float(cm.get("TN", 0))
+    fp = float(cm.get("FP", 0))
+    fn = float(cm.get("FN", 0))
+    tp = float(cm.get("TP", 0))
+    tpr = tp / (tp + fn) if (tp + fn) else float(cm.get("TPR", float("nan")))
+    fpr = fp / (fp + tn) if (fp + tn) else float(cm.get("FPR", float("nan")))
+    balanced_accuracy = (tpr + (1.0 - fpr)) / 2.0
+    denom = math.sqrt((tp + fp) * (tp + fn) * (tn + fp) * (tn + fn))
+    mcc = ((tp * tn) - (fp * fn)) / denom if denom else float("nan")
 
     return {
         "f1": float(calib.get("f1")),
         "auc": float(calib.get("auc")),
         "ap": float(calib.get("ap")),
-        "tpr": float(cm.get("TPR")),
-        "fpr": float(cm.get("FPR")),
+        "tpr": float(tpr),
+        "fpr": float(fpr),
+        "balanced_accuracy": float(balanced_accuracy),
+        "mcc": float(mcc),
         "tau_star": float(d.get("tau_star_from_val_F1")),
         "f1_at_0_5": float(default.get("f1")) if default.get("f1") is not None else float("nan"),
     }
@@ -297,6 +310,7 @@ def main():
         "seeds": sorted(per_seed.keys()),
         "epochs": args.epochs,
         "batch_size": args.batch_size,
+        "eval_batch_size": args.batch_size,
         "max_len": args.max_len,
         "lr": args.lr,
         "model_name": args.model_name,

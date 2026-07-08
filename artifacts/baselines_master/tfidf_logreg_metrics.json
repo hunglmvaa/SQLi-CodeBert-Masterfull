@@ -1,0 +1,35 @@
+{
+  "config": {
+    "baseline": "TF-IDF + Logistic Regression",
+    "model_key": "tfidf_logreg",
+    "threshold_calibration": "validation_max_f1",
+    "tfidf_analyzer": "char_wb",
+    "ngram_range": [
+      3,
+      5
+    ],
+    "max_features": 50000,
+    "normalized_text": true,
+    "class_weight": null
+  },
+  "metrics": {
+    "accuracy": 0.9758498665223985,
+    "precision": 0.9901008857102259,
+    "recall": 0.9477478294380342,
+    "f1": 0.9684615295521143,
+    "tn": 68222,
+    "fp": 418,
+    "fn": 2305,
+    "tp": 41808,
+    "specificity": 0.9939102564102564,
+    "fpr": 0.00608974358974359,
+    "fnr": 0.05225217056196586,
+    "threshold": 0.38922028322111013,
+    "roc_auc": 0.9938206835914145,
+    "average_precision": 0.9935366735350838,
+    "val_best_f1": 0.9825021872265968,
+    "train_seconds": 39.871052600006806,
+    "predict_seconds": 6.046049500000663,
+    "latency_ms_per_sample": 0.05362207213999329
+  }
+}

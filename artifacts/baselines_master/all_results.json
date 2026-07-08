@@ -1,0 +1,96 @@
+{
+  "svm": {
+    "config": {
+      "baseline": "TF-IDF+SVM",
+      "tfidf_analyzer": "char_wb",
+      "ngram_range": [
+        3,
+        5
+      ],
+      "vocab_size": 5000,
+      "svm_c": 1.0,
+      "use_val_for_svm": false
+    },
+    "dataset": {
+      "train_samples": 149344,
+      "train_normal": 89607,
+      "train_sqli": 59737,
+      "val_samples": 37337,
+      "val_normal": 22402,
+      "val_sqli": 14935,
+      "test_samples": 112753,
+      "test_normal": 68640,
+      "test_sqli": 44113
+    },
+    "metrics": {
+      "accuracy": 0.9536509006412246,
+      "precision": 0.9837533898937626,
+      "recall": 0.8963344138915966,
+      "f1": 0.9380115294285104,
+      "tn": 67987,
+      "fp": 653,
+      "fn": 4573,
+      "tp": 39540,
+      "specificity": 0.9904865967365968,
+      "fpr": 0.009513403263403263,
+      "fnr": 0.10366558610840342,
+      "roc_auc": 0.9802930876570591,
+      "average_precision": 0.9802355240404601,
+      "train_seconds": 32.85230150001007,
+      "predict_seconds": 4.650348899973324,
+      "latency_ms_per_sample": 0.04124368220777561
+    }
+  },
+  "bilstm": {
+    "config": {
+      "baseline": "Character BiLSTM",
+      "epochs": 3,
+      "batch_size": 32,
+      "device": "cuda"
+    },
+    "dataset": {
+      "train_samples": 149344,
+      "train_normal": 89607,
+      "train_sqli": 59737,
+      "val_samples": 37337,
+      "val_normal": 22402,
+      "val_sqli": 14935,
+      "test_samples": 112753,
+      "test_normal": 68640,
+      "test_sqli": 44113
+    },
+    "metrics": {
+      "accuracy": 0.9919469991929262,
+      "precision": 0.9943250726527997,
+      "recall": 0.985038424047333,
+      "f1": 0.9896599631038331,
+      "train_eval_seconds": 1122.6327939999755
+    }
+  },
+  "cnn": {
+    "config": {
+      "baseline": "Character 1D-CNN",
+      "epochs": 3,
+      "batch_size": 32,
+      "device": "cuda"
+    },
+    "dataset": {
+      "train_samples": 149344,
+      "train_normal": 89607,
+      "train_sqli": 59737,
+      "val_samples": 37337,
+      "val_normal": 22402,
+      "val_sqli": 14935,
+      "test_samples": 112753,
+      "test_normal": 68640,
+      "test_sqli": 44113
+    },
+    "metrics": {
+      "accuracy": 0.9844083971158195,
+      "precision": 0.9962507322788517,
+      "recall": 0.9637748509509668,
+      "f1": 0.9797437433746601,
+      "train_eval_seconds": 69.41553279999061
+    }
+  }
+}

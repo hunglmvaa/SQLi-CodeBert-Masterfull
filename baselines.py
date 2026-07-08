@@ -125,7 +125,7 @@ def train_bilstm(
     val_texts:   List[str], val_labels:   List[int],
     test_texts:  List[str], test_labels:  List[int],
     num_epochs: int = 5,
-    batch_size: int = 64,
+    batch_size: int = 32,
     lr: float = 1e-3,
     device: str = 'cpu',
 ) -> dict:
@@ -206,7 +206,7 @@ def train_cnn(
     val_texts:   List[str], val_labels:   List[int],
     test_texts:  List[str], test_labels:  List[int],
     num_epochs: int = 5,
-    batch_size: int = 64,
+    batch_size: int = 32,
     lr: float = 1e-3,
     device: str = 'cpu',
 ) -> dict:

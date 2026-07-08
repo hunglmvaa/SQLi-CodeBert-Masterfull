@@ -1,0 +1,65 @@
+{
+  "config": {
+    "baseline": "DistilBERT-base",
+    "model_key": "distilbert",
+    "pretrained_model": "distilbert-base-uncased",
+    "max_len": 256,
+    "epochs": 3,
+    "batch_size": 32,
+    "eval_batch_size": 32,
+    "lr": 2e-05,
+    "weight_decay": 0.01,
+    "threshold_calibration": "validation_max_f1",
+    "sql_aware_tokens": false,
+    "normalized_text": true,
+    "amp": false
+  },
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 0.07458379887153212,
+      "val_loss": 0.02155245687337059,
+      "val_best_f1": 0.9934223773407611,
+      "val_threshold": 0.43488186597824097,
+      "val_fpr": 0.00276761003481832
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.018698248787132374,
+      "val_loss": 0.013613141487142974,
+      "val_best_f1": 0.9956029939918772,
+      "val_threshold": 0.22291329503059387,
+      "val_fpr": 0.0012052495312918489
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.011812323630811136,
+      "val_loss": 0.012811802775848126,
+      "val_best_f1": 0.996040799892632,
+      "val_threshold": 0.28034061193466187,
+      "val_fpr": 0.0011606106597625212
+    }
+  ],
+  "metrics": {
+    "accuracy": 0.9933394233412858,
+    "precision": 0.9964508151676131,
+    "recall": 0.9864892435336522,
+    "f1": 0.9914450076892407,
+    "tn": 68485,
+    "fp": 155,
+    "fn": 596,
+    "tp": 43517,
+    "specificity": 0.9977418414918415,
+    "fpr": 0.002258158508158508,
+    "fnr": 0.013510756466347789,
+    "threshold": 0.28034061193466187,
+    "roc_auc": 0.9985344360507293,
+    "average_precision": 0.9984277573276026,
+    "val_loss": 0.012811802775848126,
+    "test_loss": 0.04163478353019493,
+    "val_best_f1": 0.996040799892632,
+    "train_eval_seconds": 2443.270098000008,
+    "test_eval_seconds": 92.27094810002018,
+    "latency_ms_per_sample": 0.8183458364745965
+  }
+}

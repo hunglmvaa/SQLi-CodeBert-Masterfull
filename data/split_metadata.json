@@ -1,0 +1,68 @@
+{
+  "created_for": "ETASR manuscript #20371 reproducibility repository, tag v1.0.0-paper",
+  "created_at_utc": "2026-07-08T03:47:32+00:00",
+  "split_protocol_summary": [
+    "per-source deduplication",
+    "source-aware held-out split",
+    "global deduplication",
+    "cross-dataset exact-text leakage filtering",
+    "6:4 Normal:SQLi train/validation class balance",
+    "stratified 80:20 train/validation split"
+  ],
+  "splits": {
+    "train": {
+      "file": "data/train_dataset.csv",
+      "sha256": "298729190f88c4886bba0b2d194d382698efe78fb4d2f3747e3f979d4f9e2f8b",
+      "rows": 149344,
+      "normal": 89607,
+      "sqli": 59737,
+      "columns": [
+        "text",
+        "label"
+      ],
+      "duplicate_text_within_split": 0,
+      "null_text": 0,
+      "null_label": 0
+    },
+    "validation": {
+      "file": "data/val_dataset.csv",
+      "sha256": "316594212587f0287905686707640e983e4f14cd038b9af610f0d00b42d393eb",
+      "rows": 37337,
+      "normal": 22402,
+      "sqli": 14935,
+      "columns": [
+        "text",
+        "label"
+      ],
+      "duplicate_text_within_split": 0,
+      "null_text": 0,
+      "null_label": 0
+    },
+    "test": {
+      "file": "data/test_dataset.csv",
+      "sha256": "6f510ac155cfadafd522c58a41f12e4499f232ce1374addb87e6fec4eb1a8dc4",
+      "rows": 112753,
+      "normal": 68640,
+      "sqli": 44113,
+      "columns": [
+        "text",
+        "label"
+      ],
+      "duplicate_text_within_split": 0,
+      "null_text": 0,
+      "null_label": 0
+    }
+  },
+  "total": {
+    "rows": 299434,
+    "normal": 180649,
+    "sqli": 118785
+  },
+  "exact_text_overlap_audit": {
+    "train_validation_exact_text_overlap": 0,
+    "train_test_exact_text_overlap": 0,
+    "validation_test_exact_text_overlap": 0
+  },
+  "hash_algorithm": "SHA-256 over released CSV file bytes",
+  "privacy_note": "The released split CSV files contain only payload text and binary labels, matching the paper split files. Artifact prediction CSVs do not include payload text or sample IDs."
+}

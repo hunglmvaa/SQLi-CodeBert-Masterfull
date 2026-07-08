@@ -1,0 +1,608 @@
+{
+  "dataset": {
+    "total": 299434,
+    "total_normal": 180649,
+    "total_sqli": 118785,
+    "splits": {
+      "train": {
+        "n": 149344,
+        "normal": 89607,
+        "sqli": 59737
+      },
+      "val": {
+        "n": 37337,
+        "normal": 22402,
+        "sqli": 14935
+      },
+      "test": {
+        "n": 112753,
+        "normal": 68640,
+        "sqli": 44113
+      }
+    },
+    "duplicates": 0
+  },
+  "proposed_per_seed": {
+    "7": {
+      "f1": 0.993326,
+      "auc": 0.999027,
+      "ap": 0.999055,
+      "recall_tpr": 0.99032,
+      "fpr": 0.002331,
+      "precision": 0.996351,
+      "specificity": 0.997669,
+      "balanced_accuracy": 0.993995,
+      "mcc": 0.989071,
+      "accuracy": 0.994794,
+      "tp": 43686,
+      "tn": 68480,
+      "fp": 160,
+      "fn": 427
+    },
+    "42": {
+      "f1": 0.992306,
+      "auc": 0.999178,
+      "ap": 0.998967,
+      "recall_tpr": 0.988235,
+      "fpr": 0.002287,
+      "precision": 0.996412,
+      "specificity": 0.997713,
+      "balanced_accuracy": 0.992974,
+      "mcc": 0.987418,
+      "accuracy": 0.994005,
+      "tp": 43594,
+      "tn": 68483,
+      "fp": 157,
+      "fn": 519
+    },
+    "99": {
+      "f1": 0.991694,
+      "auc": 0.998932,
+      "ap": 0.998733,
+      "recall_tpr": 0.986557,
+      "fpr": 0.001981,
+      "precision": 0.996885,
+      "specificity": 0.998019,
+      "balanced_accuracy": 0.992288,
+      "mcc": 0.986437,
+      "accuracy": 0.993535,
+      "tp": 43520,
+      "tn": 68504,
+      "fp": 136,
+      "fn": 593
+    },
+    "123": {
+      "f1": 0.992346,
+      "auc": 0.999301,
+      "ap": 0.99898,
+      "recall_tpr": 0.987532,
+      "fpr": 0.001777,
+      "precision": 0.997207,
+      "specificity": 0.998223,
+      "balanced_accuracy": 0.992877,
+      "mcc": 0.987498,
+      "accuracy": 0.99404,
+      "tp": 43563,
+      "tn": 68518,
+      "fp": 122,
+      "fn": 550
+    },
+    "2024": {
+      "f1": 0.991338,
+      "auc": 0.998874,
+      "ap": 0.998745,
+      "recall_tpr": 0.985923,
+      "fpr": 0.002025,
+      "precision": 0.996814,
+      "specificity": 0.997975,
+      "balanced_accuracy": 0.991949,
+      "mcc": 0.985862,
+      "accuracy": 0.99326,
+      "tp": 43492,
+      "tn": 68501,
+      "fp": 139,
+      "fn": 621
+    }
+  },
+  "proposed_aggregate": {
+    "f1": {
+      "mean": 0.992202268009116,
+      "std": 0.000758235130389708,
+      "n": 5,
+      "min": 0.9913384390955507,
+      "max": 0.9933264361804932,
+      "ci95_low": 0.9912609456776208,
+      "ci95_high": 0.9931435903406113,
+      "ci95_half": 0.000941322331495187
+    },
+    "auc": {
+      "mean": 0.9990624029530644,
+      "std": 0.00017573596274570417,
+      "n": 5,
+      "min": 0.998874192798036,
+      "max": 0.9993005014748888,
+      "ci95_low": 0.9988442329164238,
+      "ci95_high": 0.999280572989705,
+      "ci95_half": 0.00021817003664063275
+    },
+    "ap": {
+      "mean": 0.9988959142405497,
+      "std": 0.0001476384910960106,
+      "n": 5,
+      "min": 0.9987325149953107,
+      "max": 0.9990553464437834,
+      "ci95_low": 0.9987126262298959,
+      "ci95_high": 0.9990792022512035,
+      "ci95_half": 0.00018328801065376553
+    },
+    "recall_tpr": {
+      "mean": 0.987713372475234,
+      "std": 0.0017062134579542317,
+      "n": 5,
+      "min": 0.9859225171718088,
+      "max": 0.990320313739714,
+      "ci95_low": 0.9855951682851374,
+      "ci95_high": 0.9898315766653307,
+      "ci95_half": 0.002118204190096628
+    },
+    "fpr": {
+      "mean": 0.0020804195804195805,
+      "std": 0.0002292903242454514,
+      "n": 5,
+      "min": 0.0017773892773892774,
+      "max": 0.002331002331002331,
+      "ci95_low": 0.0017957636815335938,
+      "ci95_high": 0.0023650754793055674,
+      "ci95_half": 0.0002846558988859867
+    },
+    "balanced_accuracy": {
+      "mean": 0.9928164764474072,
+      "std": 0.0007824421533762258,
+      "n": 5,
+      "min": 0.9919487294483753,
+      "max": 0.9939946557043557,
+      "ci95_low": 0.9918451019455456,
+      "ci95_high": 0.9937878509492688,
+      "ci95_half": 0.0009713745018615414
+    },
+    "mcc": {
+      "mean": 0.9872571745793672,
+      "std": 0.0012240286400129782,
+      "n": 5,
+      "min": 0.9858618068919819,
+      "max": 0.9890711166594863,
+      "ci95_low": 0.9857375859358791,
+      "ci95_high": 0.9887767632228553,
+      "ci95_half": 0.0015195886434880743
+    },
+    "accuracy": {
+      "mean": 0.993926547408938,
+      "std": 0.0005851957239003472,
+      "n": 5,
+      "min": 0.9932596028487047,
+      "max": 0.9947939300949864,
+      "ci95_low": 0.9932000474340296,
+      "ci95_high": 0.9946530473838465,
+      "ci95_half": 0.0007264999749085295
+    }
+  },
+  "proposed_released_seed_42": {
+    "f1": 0.992306,
+    "auc": 0.999178,
+    "ap": 0.998967,
+    "recall_tpr": 0.988235,
+    "fpr": 0.002287,
+    "precision": 0.996412,
+    "specificity": 0.997713,
+    "balanced_accuracy": 0.992974,
+    "mcc": 0.987418,
+    "accuracy": 0.994005,
+    "tp": 43594,
+    "tn": 68483,
+    "fp": 157,
+    "fn": 519
+  },
+  "vanilla_per_seed": {
+    "7": {
+      "f1": 0.992799,
+      "auc": 0.99926,
+      "ap": 0.999079,
+      "recall_tpr": 0.990728,
+      "fpr": 0.003278,
+      "precision": 0.994878,
+      "specificity": 0.996722,
+      "balanced_accuracy": 0.993725,
+      "mcc": 0.988193,
+      "accuracy": 0.994377,
+      "tp": 43704,
+      "tn": 68415,
+      "fp": 225,
+      "fn": 409
+    },
+    "42": {
+      "f1": 0.991983,
+      "auc": 0.998928,
+      "ap": 0.998868,
+      "recall_tpr": 0.987305,
+      "fpr": 0.002098,
+      "precision": 0.996705,
+      "specificity": 0.997902,
+      "balanced_accuracy": 0.992604,
+      "mcc": 0.9869,
+      "accuracy": 0.993756,
+      "tp": 43553,
+      "tn": 68496,
+      "fp": 144,
+      "fn": 560
+    },
+    "99": {
+      "f1": 0.993596,
+      "auc": 0.999514,
+      "ap": 0.999362,
+      "recall_tpr": 0.990094,
+      "fpr": 0.001836,
+      "precision": 0.997123,
+      "specificity": 0.998164,
+      "balanced_accuracy": 0.994129,
+      "mcc": 0.989521,
+      "accuracy": 0.995007,
+      "tp": 43676,
+      "tn": 68514,
+      "fp": 126,
+      "fn": 437
+    },
+    "123": {
+      "f1": 0.990558,
+      "auc": 0.998995,
+      "ap": 0.998796,
+      "recall_tpr": 0.984585,
+      "fpr": 0.002156,
+      "precision": 0.996604,
+      "specificity": 0.997844,
+      "balanced_accuracy": 0.991214,
+      "mcc": 0.984599,
+      "accuracy": 0.992657,
+      "tp": 43433,
+      "tn": 68492,
+      "fp": 148,
+      "fn": 680
+    },
+    "2024": {
+      "f1": 0.991149,
+      "auc": 0.998446,
+      "ap": 0.998407,
+      "recall_tpr": 0.984948,
+      "fpr": 0.001632,
+      "precision": 0.997429,
+      "specificity": 0.998368,
+      "balanced_accuracy": 0.991658,
+      "mcc": 0.985572,
+      "accuracy": 0.993118,
+      "tp": 43449,
+      "tn": 68528,
+      "fp": 112,
+      "fn": 664
+    }
+  },
+  "vanilla_aggregate": {
+    "f1": {
+      "mean": 0.9920169549549177,
+      "std": 0.0012235069532458825,
+      "n": 5,
+      "min": 0.9905580769493922,
+      "max": 0.9935960871296138,
+      "ci95_low": 0.9904980139672612,
+      "ci95_high": 0.9935358959425742,
+      "ci95_half": 0.001518940987656485
+    },
+    "auc": {
+      "mean": 0.9990285883461931,
+      "std": 0.0004003206157528471,
+      "n": 5,
+      "min": 0.9984456063171521,
+      "max": 0.9995144882339416,
+      "ci95_low": 0.9985316043365332,
+      "ci95_high": 0.999525572355853,
+      "ci95_half": 0.0004969840096598799
+    },
+    "ap": {
+      "mean": 0.998902395095211,
+      "std": 0.0003536537812878998,
+      "n": 5,
+      "min": 0.9984070109030752,
+      "max": 0.9993618658642751,
+      "ci95_low": 0.9984633463244518,
+      "ci95_high": 0.9993414438659701,
+      "ci95_half": 0.0004390487707591627
+    },
+    "recall_tpr": {
+      "mean": 0.9875320200394441,
+      "std": 0.0028369395605704157,
+      "n": 5,
+      "min": 0.9845850429578582,
+      "max": 0.9907283567202412,
+      "ci95_low": 0.9840100590349539,
+      "ci95_high": 0.9910539810439343,
+      "ci95_half": 0.0035219610044901753
+    },
+    "fpr": {
+      "mean": 0.00219988344988345,
+      "std": 0.0006383712791435503,
+      "n": 5,
+      "min": 0.0016317016317016317,
+      "max": 0.003277972027972028,
+      "ci95_low": 0.0014073678874165383,
+      "ci95_high": 0.002992399012350362,
+      "ci95_half": 0.0007925155624669116
+    },
+    "balanced_accuracy": {
+      "mean": 0.9926660682947803,
+      "std": 0.001263837536466851,
+      "n": 5,
+      "min": 0.9912144329008405,
+      "max": 0.9941289794296562,
+      "ci95_low": 0.9910970583020006,
+      "ci95_high": 0.9942350782875601,
+      "ci95_half": 0.0015690099927797513
+    },
+    "mcc": {
+      "mean": 0.9869567709906472,
+      "std": 0.0019738552781803564,
+      "n": 5,
+      "min": 0.9845987652666656,
+      "max": 0.9895209648149416,
+      "ci95_low": 0.9845062988639655,
+      "ci95_high": 0.9894072431173289,
+      "ci95_half": 0.0024504721266816604
+    },
+    "accuracy": {
+      "mean": 0.993782870522292,
+      "std": 0.0009437822918715003,
+      "n": 5,
+      "min": 0.9926565146825361,
+      "max": 0.9950067847418694,
+      "ci95_low": 0.992611197894895,
+      "ci95_high": 0.9949545431496889,
+      "ci95_half": 0.001171672627396915
+    }
+  },
+  "vanilla_released_seed_42": {
+    "f1": 0.991983,
+    "auc": 0.998928,
+    "ap": 0.998868,
+    "recall_tpr": 0.987305,
+    "fpr": 0.002098,
+    "precision": 0.996705,
+    "specificity": 0.997902,
+    "balanced_accuracy": 0.992604,
+    "mcc": 0.9869,
+    "accuracy": 0.993756,
+    "tp": 43553,
+    "tn": 68496,
+    "fp": 144,
+    "fn": 560
+  },
+  "threshold_plateau": {
+    "released_seed": 42,
+    "f1_by_tau": {
+      "0.25": 0.992306,
+      "0.30": 0.992122,
+      "0.35": 0.992064,
+      "0.40": 0.992086,
+      "0.45": 0.992085,
+      "0.50": 0.992039,
+      "0.55": 0.992062,
+      "0.57": 0.992062
+    },
+    "f1_max_minus_min": 0.000267,
+    "note": "The F1-vs-threshold curve is flat over the reported range; the selected threshold is one operating point on this plateau."
+  },
+  "mcnemar": {
+    "per_seed": [
+      {
+        "seed": "7",
+        "discordant": 499,
+        "P_gt_V": 273,
+        "V_gt_P": 226,
+        "p_exact": 0.03936413954375793,
+        "favors": "proposed",
+        "significant_0.05": true,
+        "sqli_net_proposed": -18,
+        "normal_net_proposed_fewer_fp": 65
+      },
+      {
+        "seed": "42",
+        "discordant": 344,
+        "P_gt_V": 186,
+        "V_gt_P": 158,
+        "p_exact": 0.14535480694627606,
+        "favors": "proposed",
+        "significant_0.05": false,
+        "sqli_net_proposed": 41,
+        "normal_net_proposed_fewer_fp": -13
+      },
+      {
+        "seed": "99",
+        "discordant": 476,
+        "P_gt_V": 155,
+        "V_gt_P": 321,
+        "p_exact": 2.162110685463203e-14,
+        "favors": "vanilla",
+        "significant_0.05": true,
+        "sqli_net_proposed": -156,
+        "normal_net_proposed_fewer_fp": -10
+      },
+      {
+        "seed": "123",
+        "discordant": 546,
+        "P_gt_V": 351,
+        "V_gt_P": 195,
+        "p_exact": 2.4182294196200624e-11,
+        "favors": "proposed",
+        "significant_0.05": true,
+        "sqli_net_proposed": 130,
+        "normal_net_proposed_fewer_fp": 26
+      },
+      {
+        "seed": "2024",
+        "discordant": 388,
+        "P_gt_V": 202,
+        "V_gt_P": 186,
+        "p_exact": 0.44639412021639663,
+        "favors": "proposed",
+        "significant_0.05": false,
+        "sqli_net_proposed": 43,
+        "normal_net_proposed_fewer_fp": -27
+      }
+    ],
+    "n_significant_of_5": 3,
+    "significant_directions": [
+      "proposed",
+      "vanilla"
+    ],
+    "conclusion": "Khong nhat quan: 3/5 seed significant nhung huong nguoc nhau (proposed, vanilla) => hai model tuong duong thong ke in-distribution; khac biet phan anh phuong sai train, khong phai uu the kien truc."
+  },
+  "ablation": [
+    {
+      "variant": "v0_baseline",
+      "desc": "CodeBERT baseline (no SQL tokens, no smoothing, tau=0.5)",
+      "tau": 0.5,
+      "f1": 0.987706,
+      "auc": 0.998531,
+      "fpr": 0.002724
+    },
+    {
+      "variant": "v1_sql_tokens",
+      "desc": "+ SQL-aware tokenizer (139 tokens)",
+      "tau": 0.5,
+      "f1": 0.986803,
+      "auc": 0.998088,
+      "fpr": 0.003263
+    },
+    {
+      "variant": "v2_label_smooth",
+      "desc": "+ label smoothing (eps=0.1)",
+      "tau": 0.5,
+      "f1": 0.991568,
+      "auc": 0.998942,
+      "fpr": 0.001981
+    },
+    {
+      "variant": "v3_full",
+      "desc": "+ threshold calibration on validation (full model)",
+      "tau": 0.32,
+      "f1": 0.991742,
+      "auc": 0.998942,
+      "fpr": 0.002156
+    }
+  ],
+  "ablation_note": "Under the controlled ablation protocol, label smoothing accounts for most of the F1 gain; threshold calibration selects a final recall-oriented operating point. SQL-aware tokenization alone does not improve F1 at tau=0.5.",
+  "robustness": [
+    {
+      "model": "CodeBERT vanilla",
+      "F1_clean": 0.9928,
+      "F1_obf": 0.9599,
+      "dF1": 0.0328,
+      "Rec_clean": 0.9874,
+      "Rec_obf": 0.9246,
+      "dRecall": 0.0628
+    },
+    {
+      "model": "Proposed (SQL-aware)",
+      "F1_clean": 0.9936,
+      "F1_obf": 0.9572,
+      "dF1": 0.0363,
+      "Rec_clean": 0.9894,
+      "Rec_obf": 0.92,
+      "dRecall": 0.0694
+    }
+  ],
+  "robustness_note": "Both the proposed and default-tokenizer CodeBERT models degrade under the exploratory two-level obfuscation stress test; the manuscript treats obfuscation robustness as future work rather than a demonstrated advantage.",
+  "latency": {
+    "rows": [
+      {
+        "config": "PyTorch (Baseline)",
+        "format": "32-bit (FP32)",
+        "avg_ms": 36.9142,
+        "p95_ms": 58.1338,
+        "size_mb": 475.8106,
+        "speedup": 1.0
+      },
+      {
+        "config": "ONNX (FP32 O3)",
+        "format": "32-bit (FP32)",
+        "avg_ms": 10.6274,
+        "p95_ms": 19.2985,
+        "size_mb": 475.8504,
+        "speedup": 3.4735
+      },
+      {
+        "config": "ONNX (FP16)",
+        "format": "16-bit (FP16)",
+        "avg_ms": 11.0435,
+        "p95_ms": 20.17,
+        "size_mb": 237.9467,
+        "speedup": 3.3426
+      },
+      {
+        "config": "ONNX (INT8)",
+        "format": "8-bit (INT8)",
+        "avg_ms": 7.9744,
+        "p95_ms": 15.3862,
+        "size_mb": 120.2127,
+        "speedup": 4.6291
+      }
+    ],
+    "n_measured": 112753,
+    "note": "Use the full-test ONNX INT8 benchmark value: 7.97 ms average model-inference latency over 112,753 samples."
+  },
+  "token_length": {
+    "n_samples": 112753,
+    "vocab_sql_aware": 50374,
+    "vocab_vanilla": 50265,
+    "raw_length": {
+      "sql_aware": {
+        "mean": 17.727111473752363,
+        "p50": 10.0,
+        "p95": 46.0,
+        "p99": 83.0,
+        "max": 1356
+      },
+      "vanilla": {
+        "mean": 17.702083314856367,
+        "p50": 10.0,
+        "p95": 46.0,
+        "p99": 83.0,
+        "max": 1324
+      }
+    },
+    "clipped_length": {
+      "sql_aware": {
+        "mean": 17.69876632994244,
+        "p50": 10.0,
+        "p95": 46.0,
+        "p99": 83.0,
+        "max": 256
+      },
+      "vanilla": {
+        "mean": 17.674288045550895,
+        "p50": 10.0,
+        "p95": 46.0,
+        "p99": 83.0,
+        "max": 256
+      }
+    },
+    "mean_reduction_pct": -0.1413853864024638,
+    "p95_reduction_pct": 0.0,
+    "pct_samples_shorter": 0.25010421008753647,
+    "pct_truncated_sql_aware": 0.023059253412326057,
+    "pct_truncated_vanilla": 0.023059253412326057,
+    "_verdict_meaningful": false,
+    "_verdict_note": "SQL-aware tokenization does not materially shorten sequences in this audit; latency gains are attributed to ONNX graph optimization and INT8 quantization rather than shorter tokenized inputs."
+  },
+  "_warnings": [
+    "Full leave-one-source-out generalization is not claimed in the manuscript; LOSO retraining is left for future work.",
+    "The robustness files are exploratory stress-test evidence and do not establish adversarial-obfuscation robustness as a demonstrated advantage.",
+    "The artifact prediction CSVs intentionally exclude payload text, sample IDs, source IDs, and payload hashes."
+  ]
+}

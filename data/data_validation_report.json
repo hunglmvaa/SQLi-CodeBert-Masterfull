@@ -1,7 +1,7 @@
 {
   "splits": [
     {
-      "file": "data/train_dataset.csv",
+      "file": "data\\train_dataset.csv",
       "rows_raw": 149344,
       "rows_usable": 149344,
       "normal": 89607,
@@ -16,7 +16,7 @@
       "char_len_max": 681
     },
     {
-      "file": "data/val_dataset.csv",
+      "file": "data\\val_dataset.csv",
       "rows_raw": 37337,
       "rows_usable": 37337,
       "normal": 22402,
@@ -31,7 +31,7 @@
       "char_len_max": 1055
     },
     {
-      "file": "data/test_dataset.csv",
+      "file": "data\\test_dataset.csv",
       "rows_raw": 112753,
       "rows_usable": 112753,
       "normal": 68640,

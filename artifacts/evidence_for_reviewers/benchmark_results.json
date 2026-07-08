@@ -1,0 +1,145 @@
+﻿{
+    "benchmark_type":  "dynamic_shape_cpu",
+    "runtime":  "CPU-oriented ONNX Runtime benchmark",
+    "unit":  "ms/sample",
+    "environment":  {
+                        "created_at_utc":  "2026-07-03T16:29:25.017091+00:00",
+                        "command":  "benchmark_and_plot.py --sample_size all --num_threads 16 --warmup 30 --repeats 1 --cooldown 5 --max_length 256 --save_raw_latencies",
+                        "platform":  {
+                                         "system":  "Windows",
+                                         "release":  "10",
+                                         "version":  "10.0.26200",
+                                         "machine":  "AMD64",
+                                         "processor":  "Intel64 Family 6 Model 154 Stepping 3, GenuineIntel",
+                                         "python":  "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+                                         "cpu_count_logical":  20
+                                     },
+                        "threading":  {
+                                          "num_threads":  16,
+                                          "OMP_NUM_THREADS":  "16",
+                                          "MKL_NUM_THREADS":  "16",
+                                          "torch_num_threads":  16
+                                      },
+                        "versions":  {
+                                         "torch":  "2.6.0+cu124",
+                                         "onnxruntime":  "1.24.4",
+                                         "transformers":  "4.57.6",
+                                         "optimum":  "2.1.0",
+                                         "numpy":  "2.4.3",
+                                         "pandas":  "3.0.1"
+                                     },
+                        "providers":  [
+                                          "AzureExecutionProvider",
+                                          "CPUExecutionProvider"
+                                      ],
+                        "paths":  {
+                                      "model_dir":  "<LOCAL_EXPERIMENT_ROOT>\\results\\best_model_sql_aware",
+                                      "onnx_fp32_dir":  "<LOCAL_EXPERIMENT_ROOT>\\results\\onnx_fp32",
+                                      "onnx_fp16_dir":  "<LOCAL_EXPERIMENT_ROOT>\\results\\onnx_fp16",
+                                      "onnx_int8_dir":  "<LOCAL_EXPERIMENT_ROOT>\\results\\onnx_int8",
+                                      "data_path":  "<LOCAL_EXPERIMENT_ROOT>\\data\\test_dataset.csv"
+                                  },
+                        "model_files":  {
+                                            "onnx_fp32_optimized":  {
+                                                                        "path":  "<LOCAL_EXPERIMENT_ROOT>\\results\\onnx_fp32\\model_optimized.onnx",
+                                                                        "exists":  true,
+                                                                        "size_bytes":  498965288,
+                                                                        "size_mb":  475.8504
+                                                                    },
+                                            "onnx_fp16_optimized":  {
+                                                                        "path":  "<LOCAL_EXPERIMENT_ROOT>\\results\\onnx_fp16\\model_optimized.onnx",
+                                                                        "exists":  true,
+                                                                        "size_bytes":  249505210,
+                                                                        "size_mb":  237.9467
+                                                                    },
+                                            "onnx_int8_quantized":  {
+                                                                        "path":  "<LOCAL_EXPERIMENT_ROOT>\\results\\onnx_int8\\model_quantized.onnx",
+                                                                        "exists":  true,
+                                                                        "size_bytes":  126052110,
+                                                                        "size_mb":  120.2127
+                                                                    }
+                                        }
+                    },
+    "input_meta":  {
+                       "data_path":  "<LOCAL_EXPERIMENT_ROOT>\\data\\test_dataset.csv",
+                       "raw_usable_rows":  112753,
+                       "sample_size":  112753,
+                       "sample_mode":  "all",
+                       "token_len_min":  3,
+                       "token_len_mean":  17.69876632994244,
+                       "token_len_p50":  10.0,
+                       "token_len_p95":  46.0,
+                       "token_len_p99":  83.0,
+                       "token_len_max":  256
+                   },
+    "tokenization":  {
+                         "padding":  false,
+                         "truncation":  true,
+                         "max_length":  256
+                     },
+    "onnxruntime_available_providers":  [
+                                            "AzureExecutionProvider",
+                                            "CPUExecutionProvider"
+                                        ],
+    "num_threads":  16,
+    "warmup":  30,
+    "repeats":  1,
+    "rows":  [
+                 {
+                     "Deployment Configuration":  "PyTorch (Baseline)",
+                     "Data Format":  "32-bit (FP32)",
+                     "Avg. Latency (ms)":  36.9142,
+                     "Median Latency (ms)":  34.4479,
+                     "P95 Latency (ms)":  58.1338,
+                     "P99 Latency (ms)":  78.5584,
+                     "Std. Latency (ms)":  11.678,
+                     "Min Latency (ms)":  20.6272,
+                     "Max Latency (ms)":  192.2097,
+                     "Measured Samples":  112753,
+                     "Size (MB)":  475.8106,
+                     "Speedup":  1.0
+                 },
+                 {
+                     "Deployment Configuration":  "ONNX (FP32 O3)",
+                     "Data Format":  "32-bit (FP32)",
+                     "Avg. Latency (ms)":  10.6274,
+                     "Median Latency (ms)":  8.2844,
+                     "P95 Latency (ms)":  19.2985,
+                     "P99 Latency (ms)":  31.6612,
+                     "Std. Latency (ms)":  5.1458,
+                     "Min Latency (ms)":  6.2493,
+                     "Max Latency (ms)":  104.7767,
+                     "Measured Samples":  112753,
+                     "Size (MB)":  475.8504,
+                     "Speedup":  3.4735
+                 },
+                 {
+                     "Deployment Configuration":  "ONNX (FP16)",
+                     "Data Format":  "16-bit (FP16)",
+                     "Avg. Latency (ms)":  11.0435,
+                     "Median Latency (ms)":  8.5833,
+                     "P95 Latency (ms)":  20.17,
+                     "P99 Latency (ms)":  32.8465,
+                     "Std. Latency (ms)":  5.3778,
+                     "Min Latency (ms)":  6.4413,
+                     "Max Latency (ms)":  102.1148,
+                     "Measured Samples":  112753,
+                     "Size (MB)":  237.9467,
+                     "Speedup":  3.3426
+                 },
+                 {
+                     "Deployment Configuration":  "ONNX (INT8)",
+                     "Data Format":  "8-bit (INT8)",
+                     "Avg. Latency (ms)":  7.9744,
+                     "Median Latency (ms)":  6.4794,
+                     "P95 Latency (ms)":  15.3862,
+                     "P99 Latency (ms)":  22.952,
+                     "Std. Latency (ms)":  3.9469,
+                     "Min Latency (ms)":  3.3814,
+                     "Max Latency (ms)":  63.2996,
+                     "Measured Samples":  112753,
+                     "Size (MB)":  120.2127,
+                     "Speedup":  4.6291
+                 }
+             ]
+}

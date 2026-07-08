@@ -5,8 +5,7 @@ Centralized configuration for the multi-seed SQLi CodeBERT reproduction package.
 
 This repository release focuses on the paper-grade multi-seed workflow.  The
 single training script `train_codebert.py` is kept as an internal worker called
-by `run_multiseed.py`; the recommended entry point is `run_multiseed.py` or
-`run_multiseed.sh`.
+by `run_multiseed.py`; the recommended entry point is `run_multiseed.py`.
 """
 
 import os
@@ -42,7 +41,7 @@ EARLY_STOPPING_PATIENCE = 3
 
 # Multi-seed reproducibility
 SEED = 42  # retained only for internal worker compatibility
-SEEDS = [42, 123, 2024]
+SEEDS = [7, 42, 99, 123, 2024]
 
 
 def seed_results_dir(seed: int) -> str:

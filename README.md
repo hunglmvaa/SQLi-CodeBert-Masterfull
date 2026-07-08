@@ -1,200 +1,176 @@
-﻿# SQLi-CodeBert-Masterfull: Multi-seed paper reproduction package
+# SQLi-CodeBert-Masterfull v1.0.0-paper
 
-This repository contains the multi-seed source-code package for the paper:
+Full reproducibility package for ETASR manuscript #20371:
 
 **SQL Injection Detection with SQL-Aware CodeBERT and ONNX INT8 Deployment**
 
-The repository provides the scripts, processed splits, and reproducibility materials needed to rerun the multi-seed experiments and generate the paper tables and figures.
+This repository is the public `v1.0.0-paper` release referenced by the manuscript and response letter. It contains the runnable source-code package, the released SQL-aware token list, processed split metadata, exact train/validation/test CSV files, evaluation scripts, and reviewer-facing result artifacts.
 
-## Scope of this release
+## What is included
 
-Included:
+* Source code for preprocessing, SQL-aware tokenization, CodeBERT fine-tuning, multi-seed training, baselines, ablation, McNemar testing, robustness stress tests, paper asset generation, and ONNX/CPU benchmarking.
+* Exact released split CSV files in `data/`:
 
-- multi-seed training of the proposed CodeBERT + SQL-aware tokenizer model;
-- validation-set threshold calibration for each seed;
-- aggregation of mean and standard deviation over seeds;
-- paper baselines and ablation scripts needed to reproduce the comparison tables;
-- ONNX FP32/FP16/INT8 export and CPU inference benchmark scripts;
-- paper asset generation from real experiment outputs;
-- the processed MasterFull train/validation/test split used by the paper.
+  * `train\_dataset.csv` — 149,344 samples
+  * `val\_dataset.csv` — 37,337 samples
+  * `test\_dataset.csv` — 112,753 samples
+* Processed split metadata and hashes:
 
+  * `data/data\_validation\_report.json` / `.csv`
+  * `data/split\_metadata.json` / `.csv`
+* SQL-aware vocabulary assets:
 
-## Repository structure
+  * `tokenizer.py`
+  * `tokenizer/sql\_tokens\_139.txt`
+  * `tokenizer/sql\_tokens\_category\_summary.json`
+* Reviewer evidence artifacts in `artifacts/`.
+* Lightweight artifact-verification scripts in `artifact\_tools/`.
+
+Generated checkpoints, ONNX model binaries, transient `results/`, notebooks, and machine-local logs are intentionally excluded.
+
+## Repository layout
 
 ```text
-sqli-codebert-masterfull-multiseed/
+SQLi-CodeBert-Masterfull/
 ├── README.md
-├── README_VI.md
-├── CITATION.cff
+├── NOTICE
 ├── LICENSE
+├── CITATION.cff
 ├── requirements.txt
 ├── config.py
 ├── preprocessing.py
 ├── tokenizer.py
-├── train_codebert.py                  # internal worker used by run_multiseed.py
-├── run_multiseed.py                   # recommended main entry point
-├── run_multiseed.sh
-├── validate_inputs.py
-├── run_ablation_multigpu_resumable.py
-├── run_classical_ml_baselines.py
-├── run_baseline_exact_split_v2.py
-├── run_transformer_baselines.py
-├── baselines.py
-├── augmentation.py
-├── dataset.py
-├── optimize_model.py
-├── benchmark_and_plot.py
-├── paper_assets_builder.py
-├── make_paper_assets.py
+├── train\_codebert.py
+├── run\_multiseed.py
+├── run\_mcnemar.py
+├── run\_obfuscation\_compare.py
+├── run\_ablation\_multigpu\_resumable.py
+├── run\_classical\_ml\_baselines.py
+├── run\_baseline\_exact\_split\_v2.py
+├── run\_transformer\_baselines.py
+├── optimize\_model.py
+├── benchmark\_and\_plot.py
 ├── data/
-│   ├── README.md
-│   ├── train_dataset.csv
-│   ├── val_dataset.csv
-│   ├── test_dataset.csv
-│   ├── data_validation_report.csv
-│   └── data_validation_report.json
+│   ├── train\_dataset.csv
+│   ├── val\_dataset.csv
+│   ├── test\_dataset.csv
+│   ├── data\_validation\_report.json
+│   ├── split\_metadata.json
+│   └── split\_metadata.csv
+├── tokenizer/
+│   ├── sql\_tokens\_139.txt
+│   ├── sql\_tokens\_category\_summary.json
+│   └── README.md
+├── artifacts/
+│   ├── MASTER\_NUMBERS.json
+│   ├── MASTER\_NUMBERS.md
+│   ├── baselines\_master/
+│   └── evidence\_for\_reviewers/
+├── artifact\_tools/
+│   ├── summarize\_artifacts.py
+│   ├── select\_cpu\_onnx\_result.py
+│   └── verify\_checksums.py
 └── docs/
-    └── MULTI_SEED_GUIDE.md
+    ├── REPRODUCIBILITY.md
+    ├── MULTI\_SEED\_GUIDE.md
+    ├── ARTIFACT\_INVENTORY.md
+    └── CPU\_ONNX\_SELECTION.md
 ```
+
+The Python source files are kept at the repository root because the released scripts import modules such as `config`, `tokenizer`, and `preprocessing` directly. This keeps commands such as `python run\_multiseed.py` and `python run\_mcnemar.py` runnable without package-path edits.
 
 ## Environment setup
 
 ```bash
 python -m venv .venv
 source .venv/bin/activate        # Linux/macOS
-# .venv\Scripts\activate       # Windows PowerShell
+# .venv\\Scripts\\Activate.ps1   # Windows PowerShell
 
 pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
-The first run requires internet access to download `microsoft/codebert-base`
-from Hugging Face. Later runs can use the local cache.
+The first training run downloads `microsoft/codebert-base` through Hugging Face. Subsequent runs can use the local cache.
 
-## Validate the included split
-
-```bash
-python validate_inputs.py --data_dir data --suffix "" --strict
-```
-
-Expected split:
-
-| Split | Samples | Normal | SQLi |
-|---|---:|---:|---:|
-| Training | 149,344 | 89,607 | 59,737 |
-| Validation | 37,337 | 22,402 | 14,935 |
-| Test | 112,753 | 68,640 | 44,113 |
-| Total | 299,434 | 180,649 | 118,785 |
-
-## Run the proposed model with multiple seeds
-
-Recommended paper-grade entry point:
+## Validate the released split files
 
 ```bash
-python run_multiseed.py \
-  --seeds 42,123,2024 \
-  --epochs 5 \
-  --batch_size 32 \
-  --max_len 256 \
-  --num_workers 2 \
-  --skip_existing
+python validate\_inputs.py --data\_dir data --suffix "" --strict
 ```
 
-Or:
+Expected counts:
+
+|Split|Samples|Normal|SQLi|
+|-|-:|-:|-:|
+|Training|149,344|89,607|59,737|
+|Validation|37,337|22,402|14,935|
+|Test|112,753|68,640|44,113|
+|Total|299,434|180,649|118,785|
+
+`data/split\_metadata.json` records SHA-256 hashes and confirms zero exact-text overlap between train, validation, and test.
+
+## Run the five-seed proposed model
 
 ```bash
-bash run_multiseed.sh
+python run\_multiseed.py   --seeds 7,42,99,123,2024   --epochs 5   --batch\_size 32   --max\_len 256   --num\_workers 2   --skip\_existing
 ```
 
-Outputs:
+Optional Windows A5000 convenience wrapper:
 
-```text
-results/seed_42/
-results/seed_123/
-results/seed_2024/
-results/multiseed/summary.csv
-results/multiseed/summary.json
-results/multiseed/summary_table.tex
+```powershell
+Set-ExecutionPolicy -Scope Process Bypass -Force; .\\Run\_Windows\_A5000\_Full.ps1
 ```
 
-`train_codebert.py` is retained because `run_multiseed.py` launches it once per
-seed in a fresh subprocess.  For the paper release, use `run_multiseed.py` as
-the main entry point instead of reporting a new single-seed run.
+## Evaluation scripts
 
-## Optional paper reproduction scripts
-
-Ablation study:
+Classical baselines:
 
 ```bash
-python run_ablation_multigpu_resumable.py \
-  --epochs 3 \
-  --batch_size 32 \
-  --max_len 256 \
-  --num_workers 2 \
-  --resume
-```
-
-Classical ML baselines:
-
-```bash
-python run_classical_ml_baselines.py \
-  --train data/train_dataset.csv \
-  --val data/val_dataset.csv \
-  --test data/test_dataset.csv \
-  --output_dir results/baselines_master \
-  --models all \
-  --max_features 50000
+python run\_classical\_ml\_baselines.py --train data/train\_dataset.csv --val data/val\_dataset.csv --test data/test\_dataset.csv --output\_dir results/baselines\_master --models all --max\_features 50000
 ```
 
 Character BiLSTM and 1D-CNN baselines:
 
 ```bash
-python run_baseline_exact_split_v2.py \
-  --train data/train_dataset.csv \
-  --val data/val_dataset.csv \
-  --test data/test_dataset.csv \
-  --baseline all \
-  --output_dir results/baselines_master
+python run\_baseline\_exact\_split\_v2.py --train data/train\_dataset.csv --val data/val\_dataset.csv --test data/test\_dataset.csv --baseline all --output\_dir results/baselines\_master
 ```
 
 Transformer baselines:
 
 ```bash
-python run_transformer_baselines.py \
-  --train data/train_dataset.csv \
-  --val data/val_dataset.csv \
-  --test data/test_dataset.csv \
-  --output_dir results/baselines_master \
-  --models bert,distilbert,roberta,codebert \
-  --epochs 3 \
-  --batch_size 32
+python run\_transformer\_baselines.py --train data/train\_dataset.csv --val data/val\_dataset.csv --test data/test\_dataset.csv --output\_dir results/baselines\_master --models bert,distilbert,roberta,codebert --epochs 3 --batch\_size 32 --eval\_batch\_size 32
 ```
 
-ONNX export and CPU benchmark after a trained checkpoint is available:
+McNemar paired tests:
 
 ```bash
-python optimize_model.py
-python benchmark_and_plot.py --sample_size all --num_threads 8
+python run\_mcnemar.py --help
 ```
 
-Build paper tables and figures from generated artifacts:
+Ablation:
 
 ```bash
-python paper_assets_builder.py
+python run\_ablation\_multigpu\_resumable.py --epochs 3 --batch\_size 32 --max\_len 256 --num\_workers 2 --resume
 ```
 
-## Citation
+ONNX optimization and CPU benchmark:
 
-If you use this repository, cite the accompanying paper and this software
-archive:
-
-```bibtex
-@software{sqli_codebert_masterfull_v1_2026,
-  author  = {Le, Manh Hung and Nguyen, Luong Anh Tuan and Nguyen, Thai Son and Tran, Loc and Vu, Quoc Hung},
-  title   = {SQLi-CodeBert-Masterfull},
-  version = {v1.0.0-paper},
-  year    = {2026},
-  url     = {https://github.com/hunglmvaa/SQLi-CodeBert-Masterfull/tree/v1.0.0-paper}
-}
+```bash
+python optimize\_model.py
+python benchmark\_and\_plot.py --help
 ```
+
+## Verify the released result artifacts
+
+```bash
+python artifact\_tools/summarize\_artifacts.py
+python artifact\_tools/select\_cpu\_onnx\_result.py
+python artifact\_tools/verify\_checksums.py
+```
+
+The artifact tools do not retrain models. They read the released evidence files and reproduce the numerical summaries used to audit the manuscript.
+
+## Scope and limitations
+
+The repository supports reproducibility of the reported pipeline and reviewer evidence. It does not include trained checkpoints or ONNX binaries. The exploratory obfuscation files in `artifacts/evidence\_for\_reviewers/` are retained for transparency but are not evidence of a demonstrated adversarial-obfuscation advantage. Full leave-one-source-out retraining is not included and is left for future work, consistent with the manuscript.
 

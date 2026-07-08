@@ -1,0 +1,4 @@
+baseline,accuracy,precision,recall,f1,tn,fp,fn,tp,specificity,fpr,fnr,roc_auc,average_precision,train_seconds,predict_seconds,latency_ms_per_sample,train_eval_seconds
+TF-IDF+SVM,0.953651,0.983753,0.896334,0.938012,67987.000000,653.000000,4573.000000,39540.000000,0.990487,0.009513,0.103666,0.980293,0.980236,32.852302,4.650349,0.041244,
+Character BiLSTM,0.991947,0.994325,0.985038,0.989660,,,,,,,,,,,,,1122.632794
+Character 1D-CNN,0.984408,0.996251,0.963775,0.979744,,,,,,,,,,,,,69.415533

@@ -1,0 +1,35 @@
+{
+  "config": {
+    "baseline": "TF-IDF + ComplementNB",
+    "model_key": "tfidf_nb",
+    "threshold_calibration": "validation_max_f1",
+    "tfidf_analyzer": "char_wb",
+    "ngram_range": [
+      3,
+      5
+    ],
+    "max_features": 50000,
+    "normalized_text": true,
+    "class_weight": null
+  },
+  "metrics": {
+    "accuracy": 0.903745354890779,
+    "precision": 0.862135795479291,
+    "recall": 0.8974905356697572,
+    "f1": 0.8794579885600045,
+    "tn": 62309,
+    "fp": 6331,
+    "fn": 4522,
+    "tp": 39591,
+    "specificity": 0.9077651515151515,
+    "fpr": 0.09223484848484849,
+    "fnr": 0.10250946433024279,
+    "threshold": 0.12851757323692525,
+    "roc_auc": 0.942554004266538,
+    "average_precision": 0.951224905162716,
+    "val_best_f1": 0.9003978644540415,
+    "train_seconds": 23.833657399984077,
+    "predict_seconds": 6.287347300007241,
+    "latency_ms_per_sample": 0.05576212872391192
+  }
+}

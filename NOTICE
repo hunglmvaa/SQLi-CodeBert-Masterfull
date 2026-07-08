@@ -1,0 +1,12 @@
+SQLi-CodeBert-Masterfull v1.0.0-paper — NOTICE
+
+This repository is released for academic reproducibility of ETASR manuscript #20371, "SQL Injection Detection with SQL-Aware CodeBERT and ONNX INT8 Deployment".
+
+The released train/validation/test CSV files are derived from four public corpora cited in the manuscript:
+
+[21] HTTP DATASET CSIC 2010, Information Security Institute, Spanish National Research Council (CSIC), 2010, doi: 10.23721/100/1478804.
+[22] SR-BH 2020 multi-label dataset, Harvard Dataverse, Version 1.2, 2022, doi: 10.7910/DVN/OGOIXX.
+[23] Fwaf-Machine-Learning-driven-Web-Application-Firewall, GitHub, 2017.
+[24] HttpParamsDataset, GitHub, 2020.
+
+Users of this repository should cite the original datasets and review the terms of the upstream sources when reusing or redistributing derived data. The repository does not include trained model checkpoints or ONNX model binaries.

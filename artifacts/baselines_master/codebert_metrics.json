@@ -1,0 +1,65 @@
+{
+  "config": {
+    "baseline": "CodeBERT-base without SQL-aware tokenizer",
+    "model_key": "codebert",
+    "pretrained_model": "microsoft/codebert-base",
+    "max_len": 256,
+    "epochs": 3,
+    "batch_size": 32,
+    "eval_batch_size": 32,
+    "lr": 2e-05,
+    "weight_decay": 0.01,
+    "threshold_calibration": "validation_max_f1",
+    "sql_aware_tokens": false,
+    "normalized_text": true,
+    "amp": false
+  },
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 0.0719738448922454,
+      "val_loss": 0.01779087580916318,
+      "val_best_f1": 0.9944992285503454,
+      "val_threshold": 0.38169124722480774,
+      "val_fpr": 0.0024104990625836977
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.01855272990295613,
+      "val_loss": 0.013209253239964585,
+      "val_best_f1": 0.9954301075268817,
+      "val_threshold": 0.7747894525527954,
+      "val_fpr": 0.0005803053298812606
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.012170161300893712,
+      "val_loss": 0.010920574813682216,
+      "val_best_f1": 0.9967122920021471,
+      "val_threshold": 0.25662896037101746,
+      "val_fpr": 0.0008034996875278992
+    }
+  ],
+  "metrics": {
+    "accuracy": 0.9941376282670971,
+    "precision": 0.9950553707332634,
+    "recall": 0.9899349398136603,
+    "f1": 0.9924885510062614,
+    "tn": 68423,
+    "fp": 217,
+    "fn": 444,
+    "tp": 43669,
+    "specificity": 0.9968385780885781,
+    "fpr": 0.0031614219114219112,
+    "fnr": 0.010065060186339628,
+    "threshold": 0.25662896037101746,
+    "roc_auc": 0.999248884295455,
+    "average_precision": 0.9991401346290758,
+    "val_loss": 0.010920574813682216,
+    "test_loss": 0.035428725024497176,
+    "val_best_f1": 0.9967122920021471,
+    "train_eval_seconds": 10068.888769199984,
+    "test_eval_seconds": 157.2398788999999,
+    "latency_ms_per_sample": 1.3945516207994457
+  }
+}

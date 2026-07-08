@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-message: "If you use this repository, please cite it as below."
+message: "If you use this repository, please cite the accompanying paper and this software archive."
 title: "SQLi-CodeBert-Masterfull"
 type: software
 version: "v1.0.0-paper"

@@ -1,0 +1,35 @@
+{
+  "config": {
+    "baseline": "TF-IDF + SGDClassifier",
+    "model_key": "tfidf_sgd",
+    "threshold_calibration": "validation_max_f1",
+    "tfidf_analyzer": "char_wb",
+    "ngram_range": [
+      3,
+      5
+    ],
+    "max_features": 50000,
+    "normalized_text": true,
+    "class_weight": null
+  },
+  "metrics": {
+    "accuracy": 0.9682048371218505,
+    "precision": 0.9861104447536343,
+    "recall": 0.9318568222519439,
+    "f1": 0.9582162962272287,
+    "tn": 68061,
+    "fp": 579,
+    "fn": 3006,
+    "tp": 41107,
+    "specificity": 0.9915646853146853,
+    "fpr": 0.008435314685314685,
+    "fnr": 0.06814317774805613,
+    "threshold": 0.3276542604888219,
+    "roc_auc": 0.9913690019016114,
+    "average_precision": 0.9906928187196289,
+    "val_best_f1": 0.9740765614506381,
+    "train_seconds": 25.342356299981475,
+    "predict_seconds": 5.489044499990996,
+    "latency_ms_per_sample": 0.04868202619877959
+  }
+}

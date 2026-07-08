@@ -1,0 +1,42 @@
+{
+  "n_samples": 112753,
+  "vocab_sql_aware": 50374,
+  "vocab_vanilla": 50265,
+  "raw_length": {
+    "sql_aware": {
+      "mean": 17.727111473752363,
+      "p50": 10.0,
+      "p95": 46.0,
+      "p99": 83.0,
+      "max": 1356
+    },
+    "vanilla": {
+      "mean": 17.702083314856367,
+      "p50": 10.0,
+      "p95": 46.0,
+      "p99": 83.0,
+      "max": 1324
+    }
+  },
+  "clipped_length": {
+    "sql_aware": {
+      "mean": 17.69876632994244,
+      "p50": 10.0,
+      "p95": 46.0,
+      "p99": 83.0,
+      "max": 256
+    },
+    "vanilla": {
+      "mean": 17.674288045550895,
+      "p50": 10.0,
+      "p95": 46.0,
+      "p99": 83.0,
+      "max": 256
+    }
+  },
+  "mean_reduction_pct": -0.1413853864024638,
+  "p95_reduction_pct": 0.0,
+  "pct_samples_shorter": 0.25010421008753647,
+  "pct_truncated_sql_aware": 0.023059253412326057,
+  "pct_truncated_vanilla": 0.023059253412326057
+}

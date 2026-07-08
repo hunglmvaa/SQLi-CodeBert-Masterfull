@@ -1,0 +1,54 @@
+{
+  "created_at_utc": "2026-07-03T14:18:39.736554+00:00",
+  "command": "optimize_model.py",
+  "source_model_dir": "<LOCAL_EXPERIMENT_ROOT>\\results\\best_model_sql_aware",
+  "onnx_dirs": {
+    "fp32": "<LOCAL_EXPERIMENT_ROOT>\\results\\onnx_fp32",
+    "fp16": "<LOCAL_EXPERIMENT_ROOT>\\results\\onnx_fp16",
+    "int8": "<LOCAL_EXPERIMENT_ROOT>\\results\\onnx_int8"
+  },
+  "platform": {
+    "system": "Windows",
+    "release": "10",
+    "machine": "AMD64",
+    "processor": "Intel64 Family 6 Model 154 Stepping 3, GenuineIntel",
+    "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]"
+  },
+  "onnxruntime": {
+    "version": "1.24.4",
+    "available_providers": [
+      "AzureExecutionProvider",
+      "CPUExecutionProvider"
+    ]
+  },
+  "onnx_files": [
+    {
+      "directory": "<LOCAL_EXPERIMENT_ROOT>\\results\\onnx_fp32",
+      "file": "model.onnx",
+      "path": "<LOCAL_EXPERIMENT_ROOT>\\results\\onnx_fp32\\model.onnx",
+      "size_bytes": 499146491,
+      "size_mb": 476.0232
+    },
+    {
+      "directory": "<LOCAL_EXPERIMENT_ROOT>\\results\\onnx_fp32",
+      "file": "model_optimized.onnx",
+      "path": "<LOCAL_EXPERIMENT_ROOT>\\results\\onnx_fp32\\model_optimized.onnx",
+      "size_bytes": 498965288,
+      "size_mb": 475.8504
+    },
+    {
+      "directory": "<LOCAL_EXPERIMENT_ROOT>\\results\\onnx_fp16",
+      "file": "model_optimized.onnx",
+      "path": "<LOCAL_EXPERIMENT_ROOT>\\results\\onnx_fp16\\model_optimized.onnx",
+      "size_bytes": 249505210,
+      "size_mb": 237.9467
+    },
+    {
+      "directory": "<LOCAL_EXPERIMENT_ROOT>\\results\\onnx_int8",
+      "file": "model_quantized.onnx",
+      "path": "<LOCAL_EXPERIMENT_ROOT>\\results\\onnx_int8\\model_quantized.onnx",
+      "size_bytes": 126052110,
+      "size_mb": 120.2127
+    }
+  ]
+}

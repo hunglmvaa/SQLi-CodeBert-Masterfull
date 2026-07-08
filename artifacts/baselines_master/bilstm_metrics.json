@@ -1,0 +1,26 @@
+{
+  "config": {
+    "baseline": "Character BiLSTM",
+    "epochs": 3,
+    "batch_size": 32,
+    "device": "cuda"
+  },
+  "dataset": {
+    "train_samples": 149344,
+    "train_normal": 89607,
+    "train_sqli": 59737,
+    "val_samples": 37337,
+    "val_normal": 22402,
+    "val_sqli": 14935,
+    "test_samples": 112753,
+    "test_normal": 68640,
+    "test_sqli": 44113
+  },
+  "metrics": {
+    "accuracy": 0.9919469991929262,
+    "precision": 0.9943250726527997,
+    "recall": 0.985038424047333,
+    "f1": 0.9896599631038331,
+    "train_eval_seconds": 1122.6327939999755
+  }
+}

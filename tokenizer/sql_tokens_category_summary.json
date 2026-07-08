@@ -1,0 +1,16 @@
+{
+  "description": "SQL-aware vocabulary additions used by tokenizer.py. Exact duplicates are removed case-insensitively while preserving order.",
+  "total_unique_tokens": 139,
+  "source_file": "tokenizer.py",
+  "categories_raw": {
+    "SQL_KEYWORDS": 99,
+    "SQL_OPERATORS": 24,
+    "SQL_INJECTION_ARTIFACTS": 17
+  },
+  "deduplicated_tokens_by_category_order": [
+    "SQL_KEYWORDS",
+    "SQL_OPERATORS",
+    "SQL_INJECTION_ARTIFACTS"
+  ],
+  "note": "Some raw-category entries intentionally overlap, e.g. NOT; the released token list contains 139 unique additions."
+}

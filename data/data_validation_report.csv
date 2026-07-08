@@ -1,5 +1,5 @@
 file,rows_raw,rows_usable,normal,sqli,null_text,null_label,invalid_label,duplicate_text,char_len_p50,char_len_p95,char_len_p99,char_len_max
-data/train_dataset.csv,149344,149344,89607,59737,0,0,0,0,85.0,216.0,305.0,681.0
-data/val_dataset.csv,37337,37337,22402,14935,0,0,0,0,84.0,215.0,311.0,1055.0
-data/test_dataset.csv,112753,112753,68640,44113,0,0,0,0,20.0,101.0,180.0,3062.0
+data\train_dataset.csv,149344,149344,89607,59737,0,0,0,0,85.0,216.0,305.0,681.0
+data\val_dataset.csv,37337,37337,22402,14935,0,0,0,0,84.0,215.0,311.0,1055.0
+data\test_dataset.csv,112753,112753,68640,44113,0,0,0,0,20.0,101.0,180.0,3062.0
 TOTAL,299434,299434,180649,118785,0,0,0,0,,,,

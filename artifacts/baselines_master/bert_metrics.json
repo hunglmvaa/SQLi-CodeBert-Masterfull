@@ -1,0 +1,65 @@
+{
+  "config": {
+    "baseline": "BERT-base",
+    "model_key": "bert",
+    "pretrained_model": "bert-base-uncased",
+    "max_len": 256,
+    "epochs": 3,
+    "batch_size": 32,
+    "eval_batch_size": 32,
+    "lr": 2e-05,
+    "weight_decay": 0.01,
+    "threshold_calibration": "validation_max_f1",
+    "sql_aware_tokens": false,
+    "normalized_text": true,
+    "amp": false
+  },
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 0.08019161662228684,
+      "val_loss": 0.025632419396727477,
+      "val_best_f1": 0.9927031843706917,
+      "val_threshold": 0.2923388183116913,
+      "val_fpr": 0.0019194714757610927
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.02030346621333763,
+      "val_loss": 0.014023645485705557,
+      "val_best_f1": 0.9950980392156863,
+      "val_threshold": 0.4889931082725525,
+      "val_fpr": 0.0013391661458798322
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.012692401804097114,
+      "val_loss": 0.013176123719435153,
+      "val_best_f1": 0.9958394846329351,
+      "val_threshold": 0.7213149070739746,
+      "val_fpr": 0.0012945272743505045
+    }
+  ],
+  "metrics": {
+    "accuracy": 0.9933305543976657,
+    "precision": 0.9963143556990134,
+    "recall": 0.9866025888060209,
+    "f1": 0.9914346895074947,
+    "tn": 68479,
+    "fp": 161,
+    "fn": 591,
+    "tp": 43522,
+    "specificity": 0.9976544289044289,
+    "fpr": 0.0023455710955710956,
+    "fnr": 0.0133974111939791,
+    "threshold": 0.7213149070739746,
+    "roc_auc": 0.9990991232214768,
+    "average_precision": 0.9989393620437829,
+    "val_loss": 0.013176123719435153,
+    "test_loss": 0.04061439839343304,
+    "val_best_f1": 0.9958394846329351,
+    "train_eval_seconds": 4232.416753700003,
+    "test_eval_seconds": 282.805769700004,
+    "latency_ms_per_sample": 2.5081884269155057
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "created_at_utc": "2026-07-03T16:29:25.017091+00:00",
+  "command": "benchmark_and_plot.py --sample_size all --num_threads 16 --warmup 30 --repeats 1 --cooldown 5 --max_length 256 --save_raw_latencies",
+  "platform": {
+    "system": "Windows",
+    "release": "10",
+    "version": "10.0.26200",
+    "machine": "AMD64",
+    "processor": "Intel64 Family 6 Model 154 Stepping 3, GenuineIntel",
+    "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+    "cpu_count_logical": 20
+  },
+  "threading": {
+    "num_threads": 16,
+    "OMP_NUM_THREADS": "16",
+    "MKL_NUM_THREADS": "16",
+    "torch_num_threads": 16
+  },
+  "versions": {
+    "torch": "2.6.0+cu124",
+    "onnxruntime": "1.24.4",
+    "transformers": "4.57.6",
+    "optimum": "2.1.0",
+    "numpy": "2.4.3",
+    "pandas": "3.0.1"
+  },
+  "providers": [
+    "AzureExecutionProvider",
+    "CPUExecutionProvider"
+  ],
+  "paths": {
+    "model_dir": "<LOCAL_EXPERIMENT_ROOT>\\results\\best_model_sql_aware",
+    "onnx_fp32_dir": "<LOCAL_EXPERIMENT_ROOT>\\results\\onnx_fp32",
+    "onnx_fp16_dir": "<LOCAL_EXPERIMENT_ROOT>\\results\\onnx_fp16",
+    "onnx_int8_dir": "<LOCAL_EXPERIMENT_ROOT>\\results\\onnx_int8",
+    "data_path": "<LOCAL_EXPERIMENT_ROOT>\\data\\test_dataset.csv"
+  },
+  "model_files": {
+    "onnx_fp32_optimized": {
+      "path": "<LOCAL_EXPERIMENT_ROOT>\\results\\onnx_fp32\\model_optimized.onnx",
+      "exists": true,
+      "size_bytes": 498965288,
+      "size_mb": 475.8504
+    },
+    "onnx_fp16_optimized": {
+      "path": "<LOCAL_EXPERIMENT_ROOT>\\results\\onnx_fp16\\model_optimized.onnx",
+      "exists": true,
+      "size_bytes": 249505210,
+      "size_mb": 237.9467
+    },
+    "onnx_int8_quantized": {
+      "path": "<LOCAL_EXPERIMENT_ROOT>\\results\\onnx_int8\\model_quantized.onnx",
+      "exists": true,
+      "size_bytes": 126052110,
+      "size_mb": 120.2127
+    }
+  }
+}

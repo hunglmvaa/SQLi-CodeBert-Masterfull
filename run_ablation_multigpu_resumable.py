@@ -18,6 +18,7 @@ PyTorch default_collate fails with unequal sequence lengths.
 import argparse
 import json
 import os
+import random
 import time
 from pathlib import Path
 
@@ -188,6 +189,11 @@ def train_one_variant(variant, args):
 
     device = "cuda" if torch.cuda.is_available() else "cpu"
     device_count = torch.cuda.device_count() if device == "cuda" else 0
+    random.seed(args.seed)
+    np.random.seed(args.seed)
+    torch.manual_seed(args.seed)
+    if device == "cuda":
+        torch.cuda.manual_seed_all(args.seed)
 
     tokenizer = AutoTokenizer.from_pretrained(args.model_name)
     n_added = 0
@@ -211,8 +217,8 @@ def train_one_variant(variant, args):
     test_ds = SQLiCsvDataset(config.TEST_CSV, tokenizer, args.max_len)
 
     train_dl = build_loader(train_ds, tokenizer, args.batch_size, True, args, device)
-    val_dl = build_loader(val_ds, tokenizer, args.batch_size * 2, False, args, device)
-    test_dl = build_loader(test_ds, tokenizer, args.batch_size * 2, False, args, device)
+    val_dl = build_loader(val_ds, tokenizer, args.batch_size, False, args, device)
+    test_dl = build_loader(test_ds, tokenizer, args.batch_size, False, args, device)
 
     print(f"[data] train={len(train_ds):,}, val={len(val_ds):,}, test={len(test_ds):,}")
     print(f"[loader] train_batches={len(train_dl):,}, batch_size={args.batch_size}, max_len={args.max_len}")
@@ -296,6 +302,7 @@ def main():
     parser.add_argument("--amp", action="store_true")
     parser.add_argument("--use_data_parallel", action="store_true")
     parser.add_argument("--num_workers", type=int, default=0)
+    parser.add_argument("--seed", type=int, default=config.SEED)
     args = parser.parse_args()
 
     config.ensure_dirs()
